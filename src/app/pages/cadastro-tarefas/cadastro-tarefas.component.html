@@ -1,0 +1,78 @@
+<div class="box-cadastro-form">
+  <div class="box-card">
+    <h2 class="box-card-title">Cadastro de Tarefas</h2>
+
+    <div class="box-form">
+      <form [formGroup]="tarefaForm" (ngSubmit)="onSubmit()" class="box-form">
+        <div class="form-floating">
+          <input
+            name="titulo"
+            type="text"
+            class="form-control"
+            id="inputTitulo"
+            placeholder="Informe  o seu login"
+            formControlName="titulo"
+            required
+          />
+          <label for="inputTitulo">Título da Tarefa</label>
+          <app-input-validation
+            [control]="tarefaForm.controls.titulo"
+          ></app-input-validation>
+        </div>
+        <button
+          [disabled]="tarefaForm.invalid"
+          class="w-100 btn btn-lg btn-primary button-color"
+        >
+          Cadastrar
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="box-listar-tarefas">
+    <div class="box-card">
+      <h2 class="box-card-title">Lista de Tarefas</h2>
+    </div>
+    <div class="box-listar">
+      @if ((listarTarefas$ | async)?.length === 0){
+
+      <p>Você não tem nenhuma tarefa cadastrada</p>
+
+      } @else {
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>Tarefa</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (tarefa of listarTarefas$ | async; track tarefa) {
+          <tr>
+            <td>
+              {{ tarefa.titulo }}
+            </td>
+            <td>
+              <div class="btn-action">
+                <button
+                  type="button"
+                  class="w-100 btn btn-primary button-color"
+                >
+                  Alterar
+                </button>
+                <button
+                  type="button"
+                  (click)="excluirTarefa(tarefa.titulo)"
+                  class="w-100 btn btn-primary button-color-red"
+                >
+                  Excluir
+                </button>
+              </div>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+      }
+    </div>
+  </div>
+</div>

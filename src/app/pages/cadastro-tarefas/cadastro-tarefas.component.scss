@@ -1,0 +1,24 @@
+.box-cadastro-form {
+  width: 600px;
+  height: 100%;
+  margin: -100px auto 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.box-listar-tarefas {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 20px;
+  .box-listar {
+    padding: 20px;
+  }
+  .btn-action {
+    display: flex;
+    button {
+      margin-right: 10px;
+    }
+  }
+}

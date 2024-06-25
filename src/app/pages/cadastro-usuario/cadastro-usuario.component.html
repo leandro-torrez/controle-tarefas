@@ -1,0 +1,100 @@
+<div class="box-cadastro-form">
+  <div class="box-card">
+    <h2 class="box-card-title">Cadastro de Usuários</h2>
+
+    <div class="box-form">
+      <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()" class="box-form">
+        <div class="form-floating">
+          <input
+            name="nome"
+            type="text"
+            class="form-control"
+            id="inputUsuario"
+            placeholder="Informe o seu nome"
+            formControlName="nome"
+          />
+          <label for="inputUsuario">Nome</label>
+        </div>
+        <app-input-validation
+          [control]="usuarioForm.controls.nome"
+        ></app-input-validation>
+        <div class="form-floating">
+          <input
+            name="email"
+            type="text"
+            class="form-control"
+            id="inputEmail"
+            placeholder="Informe o seu e-mail"
+            formControlName="email"
+            required
+          />
+          <label for="inputEmail">E-mail</label>
+        </div>
+        <app-input-validation
+          [control]="usuarioForm.controls.email"
+        ></app-input-validation>
+        <div class="form-floating">
+          <input
+            name="login"
+            type="text"
+            class="form-control"
+            id="inputLogin"
+            placeholder="Informe o seu login"
+            formControlName="login"
+            required
+          />
+          <label for="inputLogin">Login</label>
+        </div>
+        <app-input-validation
+          [control]="usuarioForm.controls.login"
+        ></app-input-validation>
+        <div class="form-floating">
+          <input
+            name="senha"
+            type="text"
+            class="form-control"
+            id="inputSenha"
+            placeholder="Informe a sua senha"
+            formControlName="senha"
+            required
+          />
+          <label for="inputSenha">Senha</label>
+        </div>
+        <app-input-validation
+          [control]="usuarioForm.controls.senha"
+        ></app-input-validation>
+        <div class="d-flex">
+          <div class="form-check form-check-inline m->">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="perfil"
+              value="1"
+              id="radioProfessor"
+            />
+            <label class="form-check-label" for="radioProfessor">
+              Professor
+            </label>
+          </div>
+          <div class="form-check form-check-inline m->">
+            <input
+              class="form-check-input"
+              type="radio"
+              formControlName="perfil"
+              value="2"
+              id="radioAluno"
+            />
+            <label class="form-check-label" for="radioAluno"> Aluno </label>
+          </div>
+        </div>
+
+        <button
+          [disabled]="usuarioForm.invalid"
+          class="w-100 btn btn-lg btn-primary button-color"
+        >
+          Cadastrar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

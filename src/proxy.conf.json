@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://29hm1tfx-44380.brs.devtunnels.ms",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
