@@ -1,0 +1,46 @@
+<div class="box-login">
+  <div class="box-login-form">
+    <app-logo></app-logo>
+    <form #login="ngForm" (ngSubmit)="efetuarLogin(login)" class="box-form">
+      <div class="form-floating">
+        <input
+          name="login"
+          type="login"
+          class="form-control"
+          id="inputLogin"
+          placeholder="Informe  o seu login"
+          [(ngModel)]="formLogin.login"
+          required
+        />
+        <label for="inputLogin">Login</label>
+      </div>
+
+      <app-input-validation
+        [control]="login.controls['login']"
+      ></app-input-validation>
+
+      <div class="form-floating">
+        <input
+          name="senha"
+          type="password"
+          class="form-control"
+          id="inputPass"
+          placeholder="********"
+          required
+          [(ngModel)]="formLogin.senha"
+        />
+        <label for="inputPass">Senha</label>
+      </div>
+      <app-input-validation
+        [control]="login.controls['senha']"
+      ></app-input-validation>
+      <button
+        [disabled]="login.invalid"
+        class="w-100 btn btn-lg btn-primary button-color"
+        type="submit"
+      >
+        Entrar
+      </button>
+    </form>
+  </div>
+</div>

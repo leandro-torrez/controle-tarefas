@@ -1,0 +1,30 @@
+.box-header {
+  width: 100%;
+  height: auto;
+  display: flex;
+
+  .box-header-menu {
+    ul {
+      li {
+        display: inline;
+        a {
+          margin-right: 10px;
+          border-radius: 5px;
+          transition: all linear 0.2s;
+          background-color: #fff;
+          border: 1px solid #f1f1f4;
+          color: #252f4a;
+          text-decoration: none;
+          padding: 10px;
+          &:hover,
+          &.linkativo {
+            background-color: #20d489;
+          }
+        }
+        &:last-child {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+}

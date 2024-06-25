@@ -1,0 +1,8 @@
+@if(mostrarErros()){
+<div
+  *ngFor="let message of mostrarMensagens()"
+  class="error-form bg-danger text-light p-20"
+>
+  {{ message }}
+</div>
+}
